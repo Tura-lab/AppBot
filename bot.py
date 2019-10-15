@@ -29,19 +29,19 @@ def send(update, context):
     
     app = update.message.text
     app = app.replace(' ', '+')
-    context.bot.send_message(chat_id=update.message.chat_id, text="Till app"))
+    context.bot.send_message(chat_id=update.message.chat_id, text="Till app")
     
     url = 'https://m.apkpure.com/search?q={}'.format(app)
     
     r = requests.get(url, headers = headers)
-    context.bot.send_message(chat_id=update.message.chat_id, text="requested"))
+    context.bot.send_message(chat_id=update.message.chat_id, text="requested")
 
     soup = bs(r.text, 'html.parser')
     divs = soup.findAll( "a" , { "class" : "dd" })
     i=1
     
     for di in divs:
-    	context.bot.send_message(chat_id=update.message.chat_id, text="In for"))
+    	context.bot.send_message(chat_id=update.message.chat_id, text="In for")
     	di = divs[4]
     	web_site = 'https://m.apkpure.com'
     	d=di.find_all(href= True )
