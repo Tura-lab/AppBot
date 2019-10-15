@@ -20,8 +20,6 @@ pep517==0.7.0
 python-dateutil==2.8.0
 python-telegram-bot==12.0.0
 pytz==2019.2
-pywin32==225
-pywin32-ctypes==0.2.0
 requests==2.22.0
 rsa==4.0
 sh==1.12.14
