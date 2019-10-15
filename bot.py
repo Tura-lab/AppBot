@@ -29,12 +29,10 @@ def send(update, context):
     
     app = update.message.text
     app = app.replace(' ', '+')
-    context.bot.send_message(chat_id=update.message.chat_id, text="Till app")
     
     url = 'https://m.apkpure.com/search?q={}'.format(app)
     
     r = requests.get(url, headers = headers)
-    context.bot.send_message(chat_id=update.message.chat_id, text="requested")
 
     soup = bs(r.text, 'html.parser')
     divs = soup.findAll( "a" , { "class" : "dd" })
@@ -56,7 +54,6 @@ def send(update, context):
     	
     	tell_title = "{}){}".format(i, title) + "\n"
     	tell_size = "Size --> {}".format(size) + "\n"
-    	context.bot.send_message(chat_id=update.message.chat_id, text = tell_title)
     	tell_link = "Download --> {}".format(dwn) + "\n"
     	lines = "*"*5 + "\n" + "*"*5 + "\n"
     	context.bot.send_message(chat_id=update.message.chat_id, text = "{}{}{}{}". format(tell_title, tell_size, tell_link, lines))
