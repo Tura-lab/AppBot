@@ -1,5 +1,5 @@
 certifi==2019.9.11
-bs4==4.8.0
+beautifulsoup4==4.8.0
 heroku==0.1.4
 importlib-metadata==0.23
 itsdangerous==1.1.0
