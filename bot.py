@@ -55,6 +55,7 @@ def send(update, context):
     	size = dwnl.find_all('span')[-1].contents[0]
     	
     	tell_title = "{}){}".format(i, title) + "\n"
+	context.bot.send_message(chatid=update.message.chat_id, text = tell_title)
     	tell_size = "Size --> {}".format(size) + "\n"
     	tell_link = "Download --> {}".format(dwn) + "\n"
     	lines = "*"*5 + "\n" + "*"*5 + "\n"
