@@ -56,10 +56,10 @@ def send(update, context):
     	
     	tell_title = "{}){}".format(i, title) + "\n"
     	tell_size = "Size --> {}".format(size) + "\n"
-    	context.bot.send_message(chatid=update.message.chat_id, text = tell_title)
+    	context.bot.send_message(chat_id=update.message.chat_id, text = tell_title)
     	tell_link = "Download --> {}".format(dwn) + "\n"
     	lines = "*"*5 + "\n" + "*"*5 + "\n"
-    	context.bot.send_message(chatid=update.message.chat_id, text = "{}{}{}{}". format(tell_title, tell_size, tell_link, lines))
+    	context.bot.send_message(chat_id=update.message.chat_id, text = "{}{}{}{}". format(tell_title, tell_size, tell_link, lines))
     	i+=1
 
 send_handler = MessageHandler(Filters.text, send)
