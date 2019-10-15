@@ -8,6 +8,8 @@ from functools import partial
 import time
 from telegram.error import (TelegramError, Unauthorized, BadRequest, TimedOut, ChatMigrated, NetworkError)
 from telegram.ext import MessageHandler, Filters
+import requests
+from bs4 import BeautifulSoup as bs
 
 
 updater = Updater(token= '943716178:AAGZ1O-X1EBqzF250jmf2ibGOZlE323Gq-A', use_context=True)
@@ -20,25 +22,26 @@ def start(update, context):
 def send(update, context):
 	
     context.bot.send_message(chat_id=update.message.chat_id, text="This is what I found for your search \"{}\" : \n==========".format(update.message.text))
-    
-    import requests
-    from bs4 import BeautifulSoup as bs
+ 
     
     USER_AGENT = 'Chrome'
     headers = { 'User-Agent': USER_AGENT }
     
-    app = "clash clans"
+    app = update.message.text
     app = app.replace(' ', '+')
+    context.bot.send_message(chat_id=update.message.chat_id, text="Till app"))
     
     url = 'https://m.apkpure.com/search?q={}'.format(app)
     
     r = requests.get(url, headers = headers)
-    
+    context.bot.send_message(chat_id=update.message.chat_id, text="requested"))
+
     soup = bs(r.text, 'html.parser')
     divs = soup.findAll( "a" , { "class" : "dd" })
     i=1
     
     for di in divs:
+    	context.bot.send_message(chat_id=update.message.chat_id, text="In for"))
     	di = divs[4]
     	web_site = 'https://m.apkpure.com'
     	d=di.find_all(href= True )
