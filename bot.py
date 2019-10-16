@@ -56,7 +56,8 @@ def send(update, context):
         lines = "*"*5 + "\n" + "*"*5 + "\n"
         final += str(tell_title) + str(tell_size) + str(tell_link) + str(lines)
         i+=1
-	
+    
+    context.bot.send_message(chat_id=update.message.chat_id, text = "Done searching")
     if len(divs) is not 0:
     	context.bot.send_message(chat_id=update.message.chat_id, text = final)
     else:
