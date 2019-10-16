@@ -50,15 +50,12 @@ def send(update, context):
         tell_size = "Size --> {}".format(size) + "\n"
         tell_link = "Download --> {}".format(dwn) + "\n"
         lines = "*"*5 + "\n" + "*"*5 + "\n"
-        context.bot.send_message(chat_id = update.message.chat_id, text = "Done 1")
         final += str(tell_size)
         final += str(tell_link)
         final += str(lines)
-        context.bot.send_message(chat_id = update.message.chat_id, text = "Done 2")
 
         i+=1
     
-    context.bot.send_message(chat_id=update.message.chat_id, text = "Done searching")
     if len(divs) is not 0:
     	context.bot.send_message(chat_id=update.message.chat_id, text = final)
     else:
