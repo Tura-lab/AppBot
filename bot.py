@@ -29,7 +29,6 @@ def send(update, context):
     app = app.replace(' ', '+')
     
     url = 'https://m.apkpure.com/search?q={}'.format(app)
-    
     r = requests.get(url, headers = headers)
 
     soup = bs(r.text, 'html.parser')
@@ -54,7 +53,11 @@ def send(update, context):
         tell_size = "Size --> {}".format(size) + "\n"
         tell_link = "Download --> {}".format(dwn) + "\n"
         lines = "*"*5 + "\n" + "*"*5 + "\n"
-        final += str(tell_title) + str(tell_size) + str(tell_link) + str(lines)
+        final += str(tell_size)
+        final += str(tell_link)
+        final += str(lines)
+        context.bot.send_message(chat_id=update.message.chat_id, text = "Done 1")
+
         i+=1
     
     context.bot.send_message(chat_id=update.message.chat_id, text = "Done searching")
