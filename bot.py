@@ -11,8 +11,6 @@ from telegram.ext import MessageHandler, Filters
 import requests
 from bs4 import BeautifulSoup as bs
 
-final = ""
-
 updater = Updater(token= '943716178:AAGZ1O-X1EBqzF250jmf2ibGOZlE323Gq-A', use_context=True)
 dispatcher = updater.dispatcher
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s' ,level=logging.INFO)
@@ -21,6 +19,7 @@ def start(update, context):
 	context.bot.send_message(chat_id=update.message.chat_id, text="Welcome to The_APKs_Bot \nAll you need to do is send me the name of the app.. I will Take care of the rest!!")
 
 def send(update, context):
+    final = ""
     
     USER_AGENT = 'Chrome'
     headers = { 'User-Agent': USER_AGENT }
