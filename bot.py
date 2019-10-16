@@ -37,9 +37,7 @@ def send(update, context):
     
     for di in divs:
         context.bot.send_message(chat_id=update.message.chat_id, text = "Give me a second.. Im searching")
-        di = divs[4]
         web_site = 'https://m.apkpure.com'
-        d=di.find_all(href= True )
         title = di.find(class_='p1').contents[0]
         link = di['href']
         link = web_site+link
@@ -53,10 +51,11 @@ def send(update, context):
         tell_size = "Size --> {}".format(size) + "\n"
         tell_link = "Download --> {}".format(dwn) + "\n"
         lines = "*"*5 + "\n" + "*"*5 + "\n"
+        context.bot.send_message(chat_id = update.message.chat_id, text = "Done 1")
         final += str(tell_size)
         final += str(tell_link)
         final += str(lines)
-        context.bot.send_message(chat_id=update.message.chat_id, text = "Done 1")
+        context.bot.send_message(chat_id = update.message.chat_id, text = "Done 2")
 
         i+=1
     
