@@ -21,9 +21,6 @@ def start(update, context):
 	context.bot.send_message(chat_id=update.message.chat_id, text="Welcome to The_APKs_Bot \nAll you need to do is send me the name of the app.. I will Take care of the rest!!")
 
 def send(update, context):
-	
-    context.bot.send_message(chat_id=update.message.chat_id, text="This is what I found for your search \"{}\" : \n==========".format(update.message.text))
- 
     
     USER_AGENT = 'Chrome'
     headers = { 'User-Agent': USER_AGENT }
@@ -41,7 +38,6 @@ def send(update, context):
     
     for di in divs:
         context.bot.send_message(chat_id=update.message.chat_id, text = "Give me a second.. Im searching")
-        context.bot.send_message(chat_id=update.message.chat_id, text="In for")
         di = divs[4]
         web_site = 'https://m.apkpure.com'
         d=di.find_all(href= True )
@@ -58,7 +54,7 @@ def send(update, context):
         tell_size = "Size --> {}".format(size) + "\n"
         tell_link = "Download --> {}".format(dwn) + "\n"
         lines = "*"*5 + "\n" + "*"*5 + "\n"
-        final += (tell_title + tell_size + tell_link + lines)
+        final += str(tell_title) + str(tell_size) + str(tell_link) + str(lines)
         i+=1
 	
     if len(divs) is not 0:
