@@ -33,9 +33,9 @@ def send(update, context):
     soup = bs(r.text, 'html.parser')
     divs = soup.findAll( "a" , { "class" : "dd" })
     i=1
+    context.bot.send_message(chat_id=update.message.chat_id, text = "Give me a second.. Im searching")
     
     for di in divs:
-        context.bot.send_message(chat_id=update.message.chat_id, text = "Give me a second.. Im searching")
         web_site = 'https://m.apkpure.com'
         title = di.find(class_='p1').contents[0]
         link = di['href']
@@ -50,6 +50,7 @@ def send(update, context):
         tell_size = "Size --> {}".format(size) + "\n"
         tell_link = "Download --> {}".format(dwn) + "\n"
         lines = "*"*5 + "\n" + "*"*5 + "\n"
+        final += str(tell_title)
         final += str(tell_size)
         final += str(tell_link)
         final += str(lines)
