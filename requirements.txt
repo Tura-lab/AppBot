@@ -21,7 +21,7 @@ python-dateutil==2.8.0
 python-telegram-bot==12.0.0
 pytz==2019.2
 requests==2.22.0
-rsa==4.0
+rsa==4.1
 sh==1.12.14
 six==1.12.0
 socks5line==0.0.1
