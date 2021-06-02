@@ -26,7 +26,7 @@ sh==1.12.14
 six==1.12.0
 socks5line==0.0.1
 sortedcontainers==2.1.0
-urllib3==1.25.6
+urllib3==1.26.5
 webencodings==0.5.1
 Werkzeug==0.16.0
 winsspi==0.0.3
